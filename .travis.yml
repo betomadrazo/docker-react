@@ -7,6 +7,6 @@ before_install:
   - docker build -t betomadrazo/docker-react -f Dockerfile.dev .
 
 script:
-  # como se hacía antes:
+  # como se hacía antes: ""
   # - docker run betomadrazo/docker-react npm run test -- --coverage
   - docker run -e CI=true betomadrazo/docker-react npm run test
