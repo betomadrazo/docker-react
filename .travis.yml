@@ -10,3 +10,16 @@ script:
   # como se hacía antes: ""
   # - docker run betomadrazo/docker-react npm run test -- --coverage
   - docker run -e CI=true betomadrazo/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker"
+  env: "Docker-env"
+  bucket_name: "elasticbeanstalk-us-east-2-298302614050"
+  bucket_path: "docker"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"
